@@ -24,9 +24,9 @@ namespace TreeHouseDefense
             return _random.NextDouble() < Accuracy;
         }
 
-        public void FireOnInvaders(Invader[] invaders)
+        public void FireOnInvaders(IInvader[] invaders)
         {
-            foreach(Invader invader in invaders)
+            foreach(IInvader invader in invaders)
             {
                 if (invader.IsActive && _location.InRangeOf(invader.Location, Range))
                 {
@@ -36,7 +36,7 @@ namespace TreeHouseDefense
 
                         if (invader.IsNeutralized)
                         {
-                            Console.WriteLine("Neutralized an invader!");
+                            Console.WriteLine($"Neutralized an invader at {invader.Location}!");
                         }
                     }
                     else
